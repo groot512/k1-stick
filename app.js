@@ -2,7 +2,7 @@
   'use strict';
 
   const CONFIG = {
-    FORM_ENDPOINT: '',
+    FORM_ENDPOINT: 'https://script.google.com/macros/s/AKfycbzh6CdgNzmPOVCTX6vkjqaoyAO2B6x6wPF0kKJokJiKAfciml_cgWkWpnSwEHegNAym/exec',
     STORAGE_KEY: 'k1_validation_submissions_v3'
   };
 
