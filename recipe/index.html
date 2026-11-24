@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>K1 Recipe Web — 공식 QR 레시피 + 유튜브 추출 통합 플랫폼 | 바이트랩스</title>
+  <meta name="description" content="K1 스틱소스 공식 QR 3분 레시피, 현지 대체 식재료 매칭, 유튜브 레시피 자동 추출을 하나로 통합한 웹 플랫폼.">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="canonical" href="https://groot512.github.io/k1-stick/recipe/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groot512.github.io/k1-stick/recipe/">
+  <meta property="og:title" content="K1 Recipe Web — 공식 QR 레시피 + 유튜브 추출 통합 플랫폼 | 바이트랩스">
+  <meta property="og:description" content="K1 스틱소스 공식 QR 3분 레시피, 현지 대체 식재료 매칭, 유튜브 레시피 자동 추출을 하나로 통합한 웹 플랫폼.">
+  <meta property="og:image" content="https://groot512.github.io/k1-stick/assets/packaging/01-K1-packaging-hero.png">
+  <meta name="theme-color" content="#a92717">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Unified App Navigation -->
+  <nav class="app-nav" aria-label="K1 레시피 통합 내비게이션">
+    <div class="wrap app-nav-in">
+      <a class="app-brand" href="#/">
+        <span class="k1">K1✦</span>
+        <span class="sub">RECIPE WEB</span>
+      </a>
+
+      <div class="mode-pills" role="tablist">
+        <a class="mode-pill active" href="#/" data-nav-view="feed">
+          <i class="fa-solid fa-qrcode"></i>
+          <span data-ui="nav.feed">K1 레시피</span>
+        </a>
+        <a class="mode-pill" href="#/import" data-nav-view="import">
+          <i class="fa-brands fa-youtube yt-dot"></i>
+          <span data-ui="nav.import">+ 유튜브 가져오기</span>
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <a class="home-link" href="../index.html" data-ui="nav.brand">K1 브랜드 홈</a>
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn" type="button" aria-label="Language">
+            <span id="langFlag">🇰🇷</span>
+            <span class="lang-name" id="langName">한국어</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:.64rem"></i>
+          </button>
+          <div class="lang-menu">
+            <button type="button" data-lang="ko">🇰🇷 한국어</button>
+            <button type="button" data-lang="en">🇺🇸 English</button>
+            <button type="button" data-lang="ja">🇯🇵 日本語</button>
+            <button type="button" data-lang="zh">🇨🇳 中文</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SPA Mount -->
+  <main id="app"></main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bar" aria-label="모바일 하단 메뉴">
+    <a href="#/" data-nav-view="feed" class="active">
+      <i class="fa-solid fa-qrcode"></i>
+      <span data-ui="nav.feed">K1 레시피</span>
+    </a>
+    <a href="#/import" data-nav-view="import">
+      <i class="fa-brands fa-youtube"></i>
+      <span data-ui="nav.import">+ 유튜브</span>
+    </a>
+    <a href="../index.html">
+      <i class="fa-solid fa-house"></i>
+      <span data-ui="nav.brand">K1 홈</span>
+    </a>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="app-foot">
+    <div class="wrap app-foot-in">
+      <img src="../assets/brand/bitelabs-horizontal-white.svg" alt="Bitelabs">
+      <span>© 2026 Bitelabs · Unified K1 QR Recipe &amp; YouTube Platform</span>
+    </div>
+  </footer>
+
+  <script src="../analytics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

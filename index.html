@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K1 K-STICK SAMPLER — 톡! 털어 넣고 QR 스캔, 3분 한식 | 바이트랩스</title>
+  <meta name="description" content="한식 분말 스틱소스 3종(불고기·떡볶이·김치찌개) 6개입 샘플러와 통합 K1 QR 레시피·유튜브 추출 웹 플랫폼.">
+
+  <!-- Official Bitelabs Favicon & Social Cover -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/brand/bitelabs-icon-192.png">
+  <link rel="canonical" href="https://groot512.github.io/k1-stick/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://groot512.github.io/k1-stick/">
+  <meta property="og:title" content="K1 K-STICK SAMPLER — SCAN. TEAR. COOK.">
+  <meta property="og:description" content="한식 분말 스틱소스 3종(6개입 샘플러)과 앱 설치 없는 통합 QR·유튜브 레시피 웹. by Bitelabs.">
+  <meta property="og:image" content="https://groot512.github.io/k1-stick/assets/packaging/01-K1-packaging-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="K1 K-STICK SAMPLER — SCAN. TEAR. COOK.">
+  <meta name="twitter:description" content="한식 분말 스틱소스 3종(6개입 샘플러)과 앱 설치 없는 통합 QR·유튜브 레시피 웹. by Bitelabs.">
+  <meta name="twitter:image" content="https://groot512.github.io/k1-stick/assets/packaging/01-K1-packaging-hero.png">
+  <meta name="theme-color" content="#a92717">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== TOP EDITORIAL RIBBON ===== -->
+  <div class="top-ribbon">
+    <div class="wrap ribbon-in">
+      <span>K1 K-STICK SAMPLER</span>
+      <span class="star" aria-hidden="true">✦</span>
+      <span>6 STICKS · 2 OF EACH FLAVOR</span>
+      <span class="star" aria-hidden="true">✦</span>
+      <span>SCAN. TEAR. COOK.</span>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav" aria-label="주 메뉴">
+    <div class="wrap nav-in">
+      <a class="brand-lockup" href="#top" aria-label="K1 by Bitelabs">
+        <span class="k1-logo-pill">K1<span class="k1-spark" aria-hidden="true">✦</span></span>
+        <span class="brand-meta">
+          <img src="assets/brand/bitelabs-horizontal-gradient.svg" alt="Bitelabs">
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#lineup" data-i18n="nav.lineup">핵심 3종</a>
+        <a href="#why" data-i18n="nav.why">왜 K1인가</a>
+        <a href="#system" data-i18n="nav.system">통합 레시피 웹</a>
+        <a href="#business" data-i18n="nav.business">사업화 · B2B</a>
+        <a class="unified-link" href="recipe/index.html">
+          <i class="fa-solid fa-qrcode"></i>
+          <span data-i18n="nav.recipeApp">K1 레시피 웹</span>
+        </a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+            <span id="langFlag">🇰🇷</span>
+            <span class="lang-name" id="langName">한국어</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:.66rem"></i>
+          </button>
+          <div class="lang-menu" role="menu">
+            <button type="button" role="menuitem" data-lang="ko">🇰🇷 한국어</button>
+            <button type="button" role="menuitem" data-lang="en">🇺🇸 English</button>
+            <button type="button" role="menuitem" data-lang="ja">🇯🇵 日本語</button>
+            <button type="button" role="menuitem" data-lang="zh">🇨🇳 中文</button>
+          </div>
+        </div>
+        <a class="btn btn-ink nav-cta" href="#validate">
+          <i class="fa-solid fa-bell"></i>
+          <span data-i18n="nav.cta">사전예약 · 문의</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE DRAWER ===== -->
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" aria-label="모바일 메뉴">
+    <div class="drawer-head">
+      <img src="assets/brand/bitelabs-horizontal-gradient.svg" alt="Bitelabs" style="height:20px">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#lineup"><span data-i18n="nav.lineup">핵심 3종</span><i class="fa-solid fa-chevron-right"></i></a>
+      <a href="#why"><span data-i18n="nav.why">왜 K1인가</span><i class="fa-solid fa-chevron-right"></i></a>
+      <a href="#system"><span data-i18n="nav.system">통합 레시피 웹</span><i class="fa-solid fa-chevron-right"></i></a>
+      <a href="#business"><span data-i18n="nav.business">사업화 · B2B</span><i class="fa-solid fa-chevron-right"></i></a>
+      <a href="#validate"><span data-i18n="nav.cta">사전예약 · 문의</span><i class="fa-solid fa-chevron-right"></i></a>
+      <a class="drawer-highlight" href="recipe/index.html">
+        <span><i class="fa-solid fa-qrcode" style="margin-right:.45rem"></i><span data-i18n="nav.recipeApp">K1 레시피 웹</span></span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </nav>
+    <div class="drawer-lang">
+      <button type="button" data-lang="ko">🇰🇷 한국어</button>
+      <button type="button" data-lang="en">🇺🇸 English</button>
+      <button type="button" data-lang="ja">🇯🇵 日本語</button>
+      <button type="button" data-lang="zh">🇨🇳 中文</button>
+    </div>
+  </aside>
+
+  <!-- ===== HERO — OFFICIAL PACKAGING SHOWCASE ===== -->
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-eyebrow reveal"><span>✦</span><span data-i18n="hero.eyebrow">K1 K-STICK SAMPLER · PHASE 1 LAUNCH</span></span>
+        <h1 class="reveal d1" data-i18n-html="hero.title"><span class="red">SCAN. TEAR. COOK.</span><br>3분 만에 완성하는<br>정통 한국의 맛.</h1>
+        <p class="lead reveal d2" data-i18n="hero.lead">라면 스프처럼 가벼운 1회분(10~15g) 한식 분말 스틱소스. 불고기·떡볶이·김치찌개 핵심 3종(각 2포, 6개입) 샘플러와 앱 설치 없는 통합 QR 레시피 웹으로 세계 어디서나 실패 없는 한식을 완성합니다.</p>
+        <div class="hero-ctas reveal d3">
+          <a class="btn btn-red" href="#validate">
+            <span data-i18n="hero.primary">6개입 샘플러 사전예약</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a class="btn btn-outline" href="recipe/index.html">
+            <i class="fa-solid fa-qrcode"></i>
+            <span data-i18n="hero.secondary">통합 K1 레시피 웹 열기</span>
+          </a>
+        </div>
+
+        <div class="hero-matrix reveal d3">
+          <div class="hm-cell">
+            <strong><span data-i18n="hero.m1Val">6</span><em data-i18n="hero.m1Unit">개입</em></strong>
+            <span data-i18n="hero.m1Lbl">핵심 3종 × 각 2포 샘플러</span>
+          </div>
+          <div class="hm-cell">
+            <strong><span data-i18n="hero.m2Val">10–15</span><em data-i18n="hero.m2Unit">g</em></strong>
+            <span data-i18n="hero.m2Lbl">계량 없는 1회 정량 분말</span>
+          </div>
+          <div class="hm-cell">
+            <strong><span data-i18n="hero.m3Val">80</span><em data-i18n="hero.m3Unit">%↓</em></strong>
+            <span data-i18n="hero.m3Lbl">액상 병 대비 부피 절감 · 파손 0%</span>
+          </div>
+          <div class="hm-cell">
+            <strong><span data-i18n="hero.m4Val">No App</span><em data-i18n="hero.m4Unit"></em></strong>
+            <span data-i18n="hero.m4Lbl">QR 스캔 즉시 웹 + 유튜브 통합</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 3-View Official Packaging Stage -->
+      <div class="pkg-stage reveal d2">
+        <div class="pkg-stage-bar">
+          <div class="pkg-views" role="tablist" aria-label="패키지 뷰 전환">
+            <button class="pkg-view-btn active" type="button" data-pkg-view="hero" data-i18n="hero.v1">패키지 히어로</button>
+            <button class="pkg-view-btn" type="button" data-pkg-view="unboxing" data-i18n="hero.v2">개봉 · 6포 구성</button>
+            <button class="pkg-view-btn" type="button" data-pkg-view="artwork" data-i18n="hero.v3">스틱 앞·뒷면 QR</button>
+          </div>
+          <span class="pkg-oem-tag" data-i18n="hero.oemTag">(주)산해들 OEM MOU</span>
+        </div>
+        <div class="pkg-canvas">
+          <img id="pkgStageImg" src="assets/packaging/01-K1-packaging-hero.png" alt="K1 K-STICK SAMPLER 3종 패키지 및 스틱 목업">
+        </div>
+        <div class="pkg-caption-row">
+          <strong id="pkgStageCap">K1 K-STICK SAMPLER 6개입 박스 &amp; 핵심 스틱 3종 (01 불고기 · 02 떡볶이 · 03 김치찌개)</strong>
+          <span>1 STICK / 1 RECIPE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 01 / CORE 3 LAUNCH LINEUP (OFFICIAL PACKAGING ORDER & COLORS) ===== -->
+  <section class="lineup-sec" id="lineup">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-kicker reveal"><span class="star">✦</span><span data-i18n="lineup.kicker">01 / Core 3 Launch Lineup</span></span>
+          <h2 class="h2 reveal d1" data-i18n-html="lineup.title">실제 수요로 먼저 검증하는<br>핵심 시그니처 3종</h2>
+        </div>
+        <p class="lead reveal d2" data-i18n="lineup.lead">1차의 10종 동시 출시에서 벗어나 활용도가 가장 높은 불고기·떡볶이·김치찌개 3종(6개입 샘플러)으로 맛·가격·재구매를 검증한 뒤 10종으로 확장합니다.</p>
+      </div>
+
+      <div class="flavors-grid">
+        <!-- 01 Bulgogi (#68351F) -->
+        <article class="flavor-card reveal" style="--fc:var(--f-bulgogi)">
+          <div class="flavor-band">
+            <span class="flavor-num">01</span>
+            <div class="flavor-band-meta">
+              <strong data-i18n="f.bulgogi">불고기</strong>
+              <span>BULGOGI · #68351F</span>
+            </div>
+          </div>
+          <div class="flavor-visual">
+            <img class="dish-bg" src="assets/images/dish-bulgogi.jpg" alt="불고기 덮밥" loading="lazy">
+            <img class="flavor-stick-thumb" src="assets/packaging/k1-bulgogi-front.png" alt="K1 01 불고기 스틱 패키지" loading="lazy">
+          </div>
+          <div class="flavor-body">
+            <p data-i18n="f.bulgogiDesc">달콤 짭짤한 정통 간장 감칠맛. 소고기·닭고기·대체육과 양파만 볶아 덮밥과 볶음 요리를 3분 만에 완성합니다.</p>
+            <div class="flavor-specs">
+              <span data-i18n="f.specStick">1 STICK / 1 RECIPE</span>
+              <span data-i18n="f.specWeight">10~15g 정량</span>
+              <span data-i18n="f.specTime">3분 조리</span>
+            </div>
+            <div class="flavor-actions">
+              <a class="btn btn-outline" href="recipe/index.html#/recipe/bulgogi-dupbap">
+                <i class="fa-solid fa-qrcode"></i>
+                <span data-i18n="f.btnQr">QR 레시피 열기</span>
+              </a>
+              <button class="btn btn-red" type="button" data-reserve-flavor="bulgogi" data-i18n="f.btnReserve">이 맛 사전예약</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 Tteokbokki (#AE2D18) -->
+        <article class="flavor-card reveal d1" style="--fc:var(--f-tteokbokki)">
+          <div class="flavor-band">
+            <span class="flavor-num">02</span>
+            <div class="flavor-band-meta">
+              <strong data-i18n="f.tteokbokki">떡볶이</strong>
+              <span>TTEOKBOKKI · #AE2D18</span>
+            </div>
+          </div>
+          <div class="flavor-visual">
+            <img class="dish-bg" src="assets/images/dish-tteokbokki.jpg" alt="국물 떡볶이" loading="lazy">
+            <img class="flavor-stick-thumb" src="assets/packaging/k1-tteokbokki-front.png" alt="K1 02 떡볶이 스틱 패키지" loading="lazy">
+          </div>
+          <div class="flavor-body">
+            <p data-i18n="f.tteokbokkiDesc">글로벌 최선호 매콤달콤 국물 떡볶이. 떡볶이 떡은 물론 해외 마트의 감자 뇨끼로도 분식집 그 맛을 그대로 재현합니다.</p>
+            <div class="flavor-specs">
+              <span data-i18n="f.specStick">1 STICK / 1 RECIPE</span>
+              <span data-i18n="f.specWeight">10~15g 정량</span>
+              <span data-i18n="f.specTime">3분 조리</span>
+            </div>
+            <div class="flavor-actions">
+              <a class="btn btn-outline" href="recipe/index.html#/recipe/tteokbokki">
+                <i class="fa-solid fa-qrcode"></i>
+                <span data-i18n="f.btnQr">QR 레시피 열기</span>
+              </a>
+              <button class="btn btn-red" type="button" data-reserve-flavor="tteokbokki" data-i18n="f.btnReserve">이 맛 사전예약</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 Kimchi Stew (#722039) -->
+        <article class="flavor-card reveal d2" style="--fc:var(--f-kimchi)">
+          <div class="flavor-band">
+            <span class="flavor-num">03</span>
+            <div class="flavor-band-meta">
+              <strong data-i18n="f.kimchi">김치찌개</strong>
+              <span>KIMCHI STEW · #722039</span>
+            </div>
+          </div>
+          <div class="flavor-visual">
+            <img class="dish-bg" src="assets/images/dish-kimchi.jpg" alt="김치찌개" loading="lazy">
+            <img class="flavor-stick-thumb" src="assets/packaging/k1-kimchi-front.png" alt="K1 03 김치찌개 스틱 패키지" loading="lazy">
+          </div>
+          <div class="flavor-body">
+            <p data-i18n="f.kimchiDesc">깊고 칼칼한 서울 집밥 김치찌개 육수. 물과 두부·대파만 넣고 3분 끓이면 계량 없이 정통 찌개가 완성됩니다.</p>
+            <div class="flavor-specs">
+              <span data-i18n="f.specStick">1 STICK / 1 RECIPE</span>
+              <span data-i18n="f.specWeight">10~15g 정량</span>
+              <span data-i18n="f.specTime">3분 조리</span>
+            </div>
+            <div class="flavor-actions">
+              <a class="btn btn-outline" href="recipe/index.html#/recipe/kimchi-jjigae">
+                <i class="fa-solid fa-qrcode"></i>
+                <span data-i18n="f.btnQr">QR 레시피 열기</span>
+              </a>
+              <button class="btn btn-red" type="button" data-reserve-flavor="kimchi" data-i18n="f.btnReserve">이 맛 사전예약</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 6-Stick Sampler Spec + Phase 2 Expansion -->
+      <div class="sampler-band">
+        <div class="sampler-spec-card reveal">
+          <img src="assets/packaging/05-K1-transparent-packshot.png" alt="K1 6개입 샘플러 투명 팩샷" loading="lazy">
+          <div>
+            <h3 data-i18n="sampler.title">K1 K-STICK SAMPLER (6개입)</h3>
+            <p data-i18n="sampler.desc">불고기 2포 + 떡볶이 2포 + 김치찌개 2포로 구성된 초기 검증 전용 샘플러 박스입니다. 크라우드펀딩과 사전예약으로 가장 먼저 만나보세요.</p>
+            <div class="spec-tags">
+              <span>BOX 146×180×32mm</span>
+              <span>STICK 34×132mm</span>
+              <span>6 STICKS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase2-card reveal d1">
+          <h3>
+            <span class="phase2-badge">Phase 2</span>
+            <span data-i18n="phase2.title">재구매 검증 후 확장 예정 7종 (총 10종)</span>
+          </h3>
+          <p data-i18n="phase2.sub">핵심 3종 반복구매 데이터가 확인되면 (주)산해들 협업 배합 기반의 육수·베이스 7종을 순차 출시합니다.</p>
+          <div class="p2-list">
+            <span class="p2-pill" data-i18n="p2.anchovy">멸치 육수</span>
+            <span class="p2-pill" data-i18n="p2.seafood">해물 육수</span>
+            <span class="p2-pill" data-i18n="p2.beef">사골 육수</span>
+            <span class="p2-pill" data-i18n="p2.pollack">황태 육수</span>
+            <span class="p2-pill" data-i18n="p2.kelp">다시마 육수</span>
+            <span class="p2-pill" data-i18n="p2.veg">채수</span>
+            <span class="p2-pill" data-i18n="p2.doenjang">된장찌개 베이스</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 / WHY K1 (PROBLEM -> SOLUTION + SCAN. TEAR. COOK.) ===== -->
+  <section class="why-sec" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-kicker reveal"><span class="star">✦</span><span data-i18n="why.kicker">02 / Why K1 Stick Sauce</span></span>
+          <h2 class="h2 reveal d1" data-i18n-html="why.title">병에 갇힌 한국의 맛을,<br>초경량 분말 스틱으로 꺼냈습니다</h2>
+        </div>
+        <p class="lead reveal d2" data-i18n="why.lead">해외 거주자·여행객·1인 가구의 무겁고 남는 소스 문제와 글로벌 소비자의 복잡한 재료·계량 장벽을 동시에 해결합니다.</p>
+      </div>
+
+      <div class="editorial-split">
+        <figure class="photo-card reveal">
+          <img src="assets/images/travel-pack.jpg" alt="여행 파우치와 나란히 놓인 K1 스틱소스" loading="lazy">
+          <figcaption class="photo-cap">
+            <strong data-i18n="why.cap1Title">기내 반입 OK · 상온 장기보관</strong>
+            <span data-i18n="why.cap1Sub">액체 규정 걱정 없이 여권·파우치와 함께 가볍게 챙기는 10~15g 스틱</span>
+          </figcaption>
+        </figure>
+        <figure class="photo-card tall reveal d1">
+          <img src="assets/images/pour-action.jpg" alt="끓는 뚝배기에 K1 분말 스틱소스를 붓는 장면" loading="lazy">
+          <figcaption class="photo-cap">
+            <strong data-i18n="why.cap2Title">계량 스푼 없이 톡! 1회분 정량</strong>
+            <span data-i18n="why.cap2Sub">가위 없이 손으로 뜯는 Easy-Cut 스틱으로 매번 일정한 맛 구현</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="contrast-table">
+        <div class="contrast-col before reveal">
+          <h3><i class="fa-regular fa-circle-xmark"></i><span data-i18n="why.beforeTitle">기존 액상 병·파우치 소스</span></h3>
+          <ul>
+            <li data-i18n="why.b1">무겁고 깨지기 쉬운 유리병 — 높은 해외 운송비 및 파손 위험</li>
+            <li data-i18n="why.b2">개봉 후 냉장 보관 필수, 다 쓰지 못하고 버리는 잔여 소스</li>
+            <li data-i18n="why.b3">고추장·간장·설탕·육수 등 여러 재료를 각각 사서 계량해야 함</li>
+          </ul>
+        </div>
+        <div class="contrast-col after reveal d1">
+          <h3><i class="fa-solid fa-circle-check"></i><span data-i18n="why.afterTitle">K1 분말 스틱소스 시스템</span></h3>
+          <ul>
+            <li data-i18n="why.a1">액상 대비 부피 80% 절감 · 유리병 파손율 0% · 상온 유통 최적화</li>
+            <li data-i18n="why.a2">1회 조리분 10~15g 개별 포장으로 잔여물 없이 신선하게 소진</li>
+            <li data-i18n="why.a3">스틱 뒷면 QR 스캔으로 3분 레시피 + 현지 대체 식재료 즉시 확인</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stc-rail">
+        <div class="stc-step reveal">
+          <span class="stc-num">01 · SCAN</span>
+          <h4 data-i18n="why.s1Title">QR로 레시피 열기</h4>
+          <p data-i18n="why.s1Desc">앱 설치 없이 스마트폰 카메라로 스틱 뒷면 QR을 스캔하면 4개국어 레시피가 바로 열립니다.</p>
+        </div>
+        <div class="stc-step reveal d1">
+          <span class="stc-num">02 · TEAR &amp; POUR</span>
+          <h4 data-i18n="why.s2Title">스틱소스 한 포 톡!</h4>
+          <p data-i18n="why.s2Desc">Easy-Cut 절취선을 손으로 뜯어 냄비나 팬에 털어 넣으세요. 계량이 전혀 필요 없습니다.</p>
+        </div>
+        <div class="stc-step reveal d2">
+          <span class="stc-num">03 · COOK</span>
+          <h4 data-i18n="why.s3Title">안내대로 3분 조리</h4>
+          <p data-i18n="why.s3Desc">현지 마트 대체 식재료 안내에 따라 3분만 끓이거나 볶으면 정통 한식이 완성됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 / UNIFIED K1 RECIPE WEB (QR + YOUTUBE INTEGRATED) ===== -->
+  <section class="system-sec" id="system">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-kicker reveal"><span class="star">✦</span><span data-i18n="sys.kicker">03 / Unified K1 Recipe Web</span></span>
+          <h2 class="h2 reveal d1" data-i18n-html="sys.title">공식 QR 레시피와 유튜브 추출을<br>하나의 웹 플랫폼으로 통합했습니다</h2>
+        </div>
+        <p class="lead reveal d2" data-i18n="sys.lead">따로 놀던 레시피 데모와 유튜브 추출기를 단일 K1 레시피 웹으로 합쳤습니다. 스틱 QR 레시피는 물론, 좋아하는 유튜브 한식 영상도 K1 스틱에 맞춰 바로 변환·저장할 수 있습니다.</p>
+      </div>
+
+      <div class="system-stage">
+        <div class="qr-demo-card reveal">
+          <div class="qr-switcher">
+            <button class="qr-sku-btn active" type="button" data-qr-sku="bulgogi">01 <span data-i18n="f.bulgogi">불고기</span></button>
+            <button class="qr-sku-btn" type="button" data-qr-sku="tteokbokki">02 <span data-i18n="f.tteokbokki">떡볶이</span></button>
+            <button class="qr-sku-btn" type="button" data-qr-sku="kimchi">03 <span data-i18n="f.kimchi">김치찌개</span></button>
+          </div>
+
+          <div class="qr-pair">
+            <div class="stick-back-wrap">
+              <img id="stickBackImg" src="assets/packaging/k1-bulgogi-back.png" alt="K1 스틱 뒷면 QR 아트워크">
+              <span data-i18n="sys.backLabel">스틱 뒷면 실제 QR</span>
+            </div>
+
+            <div class="mw-preview">
+              <div class="mw-top">
+                <span><i class="fa-solid fa-lock secure"></i><span id="mwUrl">k1/recipe/#/recipe/bulgogi-dupbap</span></span>
+                <span class="tag" data-i18n="sys.noApp">앱 설치 NO</span>
+              </div>
+              <div class="mw-body">
+                <div class="mw-title" id="mwTitle">01 불고기 덮밥 (3분 조리)</div>
+                <div class="mw-sub" id="mwSub">K1 01 불고기 스틱 1포 · 물 2큰술 · 1~2인분</div>
+                <div class="mw-tabs">
+                  <button class="mw-tab-btn active" type="button" data-qr-tab="steps" data-i18n="sys.tabSteps">3분 조리</button>
+                  <button class="mw-tab-btn" type="button" data-qr-tab="subs" data-i18n="sys.tabSubs">현지 대체재료</button>
+                  <button class="mw-tab-btn" type="button" data-qr-tab="yt" data-i18n="sys.tabYt">유튜브 통합</button>
+                </div>
+                <ul class="mw-list" id="mwList"></ul>
+                <a class="btn btn-ink btn-sm" id="mwAppLink" href="recipe/index.html#/recipe/bulgogi-dupbap" style="width:100%">
+                  <span data-i18n="sys.openApp">이 레시피를 통합 웹에서 열기</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="system-features">
+          <div class="sf-card reveal">
+            <div class="sf-icon"><i class="fa-solid fa-qrcode"></i></div>
+            <div>
+              <h3 data-i18n="sys.f1Title">스틱별 고유 QR → 앱 설치 없는 즉시 웹</h3>
+              <p data-i18n="sys.f1Desc">01 불고기·02 떡볶이·03 김치찌개 스틱 뒷면 QR이 통합 웹의 해당 레시피로 1초 만에 직결됩니다.</p>
+            </div>
+          </div>
+          <div class="sf-card reveal d1">
+            <div class="sf-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+            <div>
+              <h3 data-i18n="sys.f2Title">해외 마트 기준 현지 대체 식재료 1:1 매칭</h3>
+              <p data-i18n="sys.f2Desc">해외에서 한식 재료를 구하기 어려워도 떡→뇨끼, 대파→Scallion 등 현지 대체 재료를 바로 안내합니다.</p>
+            </div>
+          </div>
+          <div class="sf-card reveal d2">
+            <div class="sf-icon"><i class="fa-brands fa-youtube"></i></div>
+            <div>
+              <h3 data-i18n="sys.f3Title">유튜브 레시피 추출 + K1 스틱 자동 매칭 통합</h3>
+              <p data-i18n="sys.f3Desc">별도 사이트 이동 없이 같은 앱에서 유튜브 링크의 재료·타임스탬프를 추출하고, 어울리는 K1 스틱을 자동 추천해 내 피드에 저장합니다.</p>
+            </div>
+          </div>
+
+          <div class="unified-cta-box reveal d3">
+            <div>
+              <strong data-i18n="sys.ctaTitle">지금 바로 통합 K1 레시피 웹을 체험해 보세요</strong>
+              <span data-i18n="sys.ctaSub">공식 3종 QR 레시피 + 유튜브 레시피 추출·저장 통합 실행</span>
+            </div>
+            <a class="btn btn-light btn-sm" href="recipe/index.html">
+              <span data-i18n="sys.ctaBtn">통합 K1 레시피 웹 열기</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 / BITELABS BI, ROADMAP & SUPPLIERS / B2B ===== -->
+  <section class="biz-sec" id="business">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-kicker reveal"><span class="star">✦</span><span data-i18n="biz.kicker">04 / Business Model &amp; Suppliers</span></span>
+          <h2 class="h2 reveal d1" data-i18n-html="biz.title">제조 전문성과 바이트랩스 IT 역량으로<br>공급업체·B2B까지 확장합니다</h2>
+        </div>
+        <p class="lead reveal d2" data-i18n="biz.lead">제조는 (주)산해들 OEM 협약으로 품질을 확보하고, 디지털 플랫폼·데이터 검증은 바이트랩스(Bitelabs)가 직접 실행하는 이중 구조입니다.</p>
+      </div>
+
+      <div class="biz-dual">
+        <article class="biz-card reveal">
+          <span class="label" data-i18n="biz.hwLabel">H/W Manufacturing</span>
+          <h3 data-i18n="biz.hwTitle">분말소스 전문기업 (주)산해들 OEM MOU</h3>
+          <p data-i18n="biz.hwDesc">핵심 3종 배합 테스트, 소량 시제품, 품질관리, 초도 양산 및 Phase 2 10종 확장까지 안정적인 제조 파트너십을 구축했습니다.</p>
+        </article>
+        <article class="biz-card highlight reveal d1">
+          <span class="label" data-i18n="biz.swLabel">S/W &amp; Data Platform · Bitelabs</span>
+          <img class="bl-logo" src="assets/brand/bitelabs-horizontal-white.svg" alt="Bitelabs">
+          <h3 data-i18n="biz.swTitle">바이트랩스(Bitelabs) 자체 기획·개발·데이터</h3>
+          <p data-i18n="biz.swDesc">통합 QR·유튜브 레시피 웹, 사전예약 검증 퍼널, 다국어 커머스 시스템을 자체 IT 역량으로 빠르게 고도화합니다.</p>
+        </article>
+      </div>
+
+      <div class="roadmap-4">
+        <div class="rm-step reveal">
+          <span data-i18n="biz.st1Tag">Stage 1 · 0~2개월</span>
+          <h4 data-i18n="biz.st1Title">핵심 3종 시제품·시식 검증</h4>
+          <p data-i18n="biz.st1Desc">외국인 팬·교민·1인 가구 블라인드 시식으로 맛·맵기·구매 의향 검증</p>
+        </div>
+        <div class="rm-step reveal d1">
+          <span data-i18n="biz.st2Tag">Stage 2 · 2~4개월</span>
+          <h4 data-i18n="biz.st2Title">통합 QR 웹 &amp; 사전예약 수집</h4>
+          <p data-i18n="biz.st2Desc">패키지 QR 연동과 랜딩페이지 검증 폼으로 선호 SKU·고객군 확보</p>
+        </div>
+        <div class="rm-step reveal d2">
+          <span data-i18n="biz.st3Tag">Stage 3 · 4~6개월</span>
+          <h4 data-i18n="biz.st3Title">국내 크라우드펀딩 유료 검증</h4>
+          <p data-i18n="biz.st3Desc">6개입 샘플러 판매로 전환율·객단가·후기·재구매율 실측</p>
+        </div>
+        <div class="rm-step reveal d3">
+          <span data-i18n="biz.st4Tag">Stage 4 · 6개월 이후</span>
+          <h4 data-i18n="biz.st4Title">미국 Amazon · B2B · 10종 확장</h4>
+          <p data-i18n="biz.st4Desc">FDA·수출표시 대응 후 글로벌 입점 및 B2B 소포장 공급 확대</p>
+        </div>
+      </div>
+
+      <div class="supplier-board reveal">
+        <div>
+          <span class="sec-kicker" style="color:var(--bl-cobalt)"><span class="star">✦</span><span data-i18n="biz.supKicker">For Suppliers &amp; B2B Buyers</span></span>
+          <h3 data-i18n="biz.supTitle">유통·공급업체 및 B2B 파트너 협업을 제안합니다</h3>
+          <p data-i18n="biz.supDesc">박스 146×180×32mm, 스틱 34×132mm의 상온·저부피 표준 규격으로 유통, 외식, 여행·체험 채널에 최적화된 공급 구조를 제공합니다.</p>
+          <div class="b2b-channels">
+            <div class="b2b-ch"><strong data-i18n="biz.ch1T">온·오프라인 유통 입점</strong><span data-i18n="biz.ch1S">상온 장기보관 · 저부피 진열 효율</span></div>
+            <div class="b2b-ch"><strong data-i18n="biz.ch2T">해외 한식당 · 케이터링</strong><span data-i18n="biz.ch2S">1포 정량으로 주방 맛 표준화</span></div>
+            <div class="b2b-ch"><strong data-i18n="biz.ch3T">기내식 · 여행 · 캠핑</strong><span data-i18n="biz.ch3S">항공 액체 규정 통과 초경량 스틱</span></div>
+            <div class="b2b-ch"><strong data-i18n="biz.ch4T">관광기념품 · 체험키트</strong><span data-i18n="biz.ch4S">4개국어 QR 레시피 포함 올인원 세트</span></div>
+          </div>
+          <button class="btn btn-cobalt" type="button" data-open-b2b>
+            <i class="fa-solid fa-handshake"></i>
+            <span data-i18n="biz.supCta">공급 · B2B 샘플 문의하기</span>
+          </button>
+        </div>
+
+        <figure class="carton-spec-preview">
+          <img src="assets/packaging/03-K1-carton-artwork.png" alt="K1 6개입 샘플러 박스 6면 전개도" loading="lazy">
+          <figcaption data-i18n="biz.cartonCap">K1 6개입 샘플러 박스 6면 아트워크 전개도 (가정 치수 146×180×32mm · OEM 협의 후 칼선 확정)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 / MARKET VALIDATION & PRE-ORDER / B2B FORM ===== -->
+  <section class="validate-sec" id="validate">
+    <div class="wrap validate-grid">
+      <div>
+        <span class="sec-kicker reveal"><span class="star">✦</span><span data-i18n="val.kicker">05 / Early Access &amp; Market Validation</span></span>
+        <h2 class="h2 reveal d1" data-i18n-html="val.title">6개입 샘플러 사전예약 및<br>공급·B2B 협업 문의</h2>
+        <p class="lead reveal d2" data-i18n="val.lead">초기 고객 선호도와 가격 수용도 데이터를 바탕으로 3종 배합과 첫 생산 수량을 확정합니다.</p>
+
+        <ul class="benefit-list reveal d2">
+          <li><i class="fa-solid fa-circle-check"></i><span data-i18n-html="val.b1"><strong>크라우드펀딩 오픈 우선 알림</strong> 및 6개입 샘플러 얼리버드 혜택</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span data-i18n-html="val.b2"><strong>초기 블라인드 시식단 우선 초청</strong> (선호 맛 응답자 우선)</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span data-i18n-html="val.b3"><strong>공급업체·B2B 바이어 전용</strong> 시제품 샘플 및 사업 소개 자료 회신</span></li>
+        </ul>
+
+        <div class="live-stat-card reveal d3">
+          <div>
+            <strong data-i18n="val.statT">현재 브라우저에 기록된 검증 데이터</strong>
+            <span data-i18n="val.statS">사전예약 · 선호 SKU · B2B 문의 실시간 누적</span>
+          </div>
+          <span class="live-pill" id="liveCountPill">0 건 기록됨</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal d1">
+        <div class="form-tabs" role="tablist">
+          <button class="form-tab active" type="button" role="tab" aria-selected="true" data-form-tab="b2c">
+            <i class="fa-solid fa-box-open"></i>
+            <span data-i18n="val.tabB2c">샘플러 사전예약 (B2C)</span>
+          </button>
+          <button class="form-tab" type="button" role="tab" aria-selected="false" data-form-tab="b2b">
+            <i class="fa-solid fa-briefcase"></i>
+            <span data-i18n="val.tabB2b">공급사 · B2B 문의</span>
+          </button>
+        </div>
+
+        <form class="form-pane active" id="pane-b2c" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="b2cName" data-i18n="val.name">이름 / 닉네임</label>
+              <input id="b2cName" type="text" placeholder="예: 김민수 / Min" data-i18n-placeholder="val.namePh">
+            </div>
+            <div class="field">
+              <label for="b2cEmail"><span data-i18n="val.email">이메일</span><span class="req">*</span></label>
+              <input id="b2cEmail" type="email" required placeholder="you@example.com" data-i18n-placeholder="val.emailPh">
+            </div>
+          </div>
+
+          <div class="field">
+            <label><span data-i18n="val.flavors">가장 기대되는 핵심 맛 선택 (복수 선택)</span><span class="req">*</span></label>
+            <div class="chip-checks">
+              <label class="chip-check"><input type="checkbox" name="flavors" value="bulgogi" checked><span>01 <b data-i18n="f.bulgogi">불고기</b></span></label>
+              <label class="chip-check"><input type="checkbox" name="flavors" value="tteokbokki"><span>02 <b data-i18n="f.tteokbokki">떡볶이</b></span></label>
+              <label class="chip-check"><input type="checkbox" name="flavors" value="kimchi"><span>03 <b data-i18n="f.kimchi">김치찌개</b></span></label>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="b2cSegment" data-i18n="val.seg">주 활용 상황</label>
+              <select id="b2cSegment">
+                <option value="solo" data-i18n="val.seg1">국내 1인 가구 · 간편 집밥</option>
+                <option value="expat" data-i18n="val.seg2">해외 거주 · 유학생 · 교민</option>
+                <option value="travel" data-i18n="val.seg3">해외 여행 · 캠핑 · 백패킹</option>
+                <option value="global" data-i18n="val.seg4">외국인 K-Food 팬 · 선물용</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="b2cPack" data-i18n="val.pack">희망 구매 구성</label>
+              <select id="b2cPack">
+                <option value="sampler_6" data-i18n="val.pack1">핵심 3종 6개입 샘플러 (맛별 2포)</option>
+                <option value="refill_10" data-i18n="val.pack2">선호 맛 10입 리필팩</option>
+                <option value="bulk_30" data-i18n="val.pack3">30입 대용량 · 정기배송</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="b2cPrice" data-i18n="val.price">6개입 샘플러 적정 가격대 (선택)</label>
+            <select id="b2cPrice">
+              <option value="" data-i18n="val.p0">선택 안 함</option>
+              <option value="5000-7000" data-i18n="val.p1">5,000원 ~ 7,000원</option>
+              <option value="7000-10000" data-i18n="val.p2">7,000원 ~ 10,000원</option>
+              <option value="10000-13000" data-i18n="val.p3">10,000원 ~ 13,000원</option>
+            </select>
+          </div>
+
+          <div class="form-consent-wrap">
+            <label class="form-consent">
+              <input id="b2cConsent" type="checkbox" checked>
+              <span data-i18n="val.consent">런칭 알림 및 제품 검증 안내를 위한 이메일 수집에 동의합니다.</span>
+            </label>
+            <button class="privacy-trigger" type="button" data-open-privacy data-i18n="val.privacyBtn">개인정보 수집·이용 안내</button>
+          </div>
+
+          <button class="btn btn-red form-submit" type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span data-i18n="val.submitB2c">6개입 샘플러 사전예약 완료</span>
+          </button>
+          <div class="form-feedback" id="b2cFeedback" role="status" aria-live="polite"></div>
+        </form>
+
+        <form class="form-pane" id="pane-b2b" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="b2bCompany"><span data-i18n="val.company">회사 / 기관명</span><span class="req">*</span></label>
+              <input id="b2bCompany" type="text" required placeholder="예: OO유통 / OO식품" data-i18n-placeholder="val.companyPh">
+            </div>
+            <div class="field">
+              <label for="b2bContact"><span data-i18n="val.contact">담당자 성함</span><span class="req">*</span></label>
+              <input id="b2bContact" type="text" required placeholder="담당자명 입력" data-i18n-placeholder="val.contactPh">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="b2bEmail"><span data-i18n="val.b2bEmail">업무용 이메일 또는 연락처</span><span class="req">*</span></label>
+              <input id="b2bEmail" type="text" required placeholder="partner@company.com / 010-0000-0000" data-i18n-placeholder="val.b2bEmailPh">
+            </div>
+            <div class="field">
+              <label for="b2bCategory" data-i18n="val.b2bType">협업 / 문의 분야</label>
+              <select id="b2bCategory">
+                <option value="retail" data-i18n="val.bt1">온·오프라인 유통 및 입점</option>
+                <option value="oem" data-i18n="val.bt2">OEM · 원부자재 · 패키징 공급</option>
+                <option value="restaurant" data-i18n="val.bt3">해외 한식당 · 케이터링 B2B</option>
+                <option value="travel_kit" data-i18n="val.bt4">기내식 · 여행 · K-Food 체험키트</option>
+                <option value="other" data-i18n="val.bt5">투자 · 멘토링 · 기타 제휴</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="b2bMessage" data-i18n="val.b2bMsg">문의 내용 (예상 수량, 희망 샘플 등)</label>
+            <textarea id="b2bMessage" placeholder="협업 희망 사항이나 필요하신 자료를 남겨주세요." data-i18n-placeholder="val.b2bMsgPh"></textarea>
+          </div>
+
+          <button class="btn btn-cobalt form-submit" type="submit">
+            <i class="fa-solid fa-handshake"></i>
+            <span data-i18n="val.submitB2b">B2B · 공급 협업 문의 접수</span>
+          </button>
+          <div class="form-feedback" id="b2bFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 / FAQ ===== -->
+  <section class="faq-sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head single">
+        <span class="sec-kicker reveal"><span class="star">✦</span><span data-i18n="faq.kicker">06 / FAQ</span></span>
+        <h2 class="h2 reveal d1" data-i18n="faq.title">자주 묻는 질문</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">스틱 뒷면 QR은 별도 앱 없이 바로 열리나요?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><div class="faq-a-in" data-i18n="faq.a1">네. 스마트폰 기본 카메라로 스캔하면 앱 설치 없이 통합 K1 레시피 웹이 즉시 열리며, 3분 조리 순서와 현지 대체 식재료까지 한 번에 확인할 수 있습니다.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">유튜브 레시피 추출 기능은 어떻게 연동되나요?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><div class="faq-a-in" data-i18n="faq.a2">통합 K1 레시피 웹 상단의 [+ 유튜브 가져오기] 탭에서 유튜브 링크를 넣으면 재료와 타임스탬프 조리 순서를 자동 추출하고, 어울리는 K1 스틱소스를 매칭해 내 레시피 피드에 함께 저장할 수 있습니다.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">6개입 샘플러는 어떻게 구성되어 있나요?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><div class="faq-a-in" data-i18n="faq.a3">01 불고기 2포, 02 떡볶이 2포, 03 김치찌개 2포로 총 6포 구성입니다. 세 가지 대표 한식을 두 번씩 경험해 보고 선호 맛을 찾으실 수 있습니다.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">해외 여행 기내 반입과 상온 보관이 가능한가요?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><div class="faq-a-in" data-i18n="faq.a4">네. 10~15g 분말 형태이므로 항공 기내 액체류 제한(100ml)에 해당하지 않으며, 개봉 전 상온 보관이 가능합니다.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q5">유통·공급업체나 B2B 샘플 협의는 어떻게 진행하나요?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><div class="faq-a-in" data-i18n="faq.a5">상단 [공급사 · B2B 문의] 탭으로 회사명과 협업 분야를 남겨주시면 (주)산해들 시제품 일정에 맞춰 샘플과 사업 소개서를 전달해 드립니다.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (OFFICIAL BITELABS BI) ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="assets/brand/bitelabs-primary-white.svg" alt="Bitelabs — Food Platform Solution">
+          <p data-i18n="foot.desc">바이트랩스(Bitelabs)는 Food × Technology × Data 기반의 푸드 플랫폼 솔루션 기업입니다. K1 스틱소스는 실물 패키지(H/W)와 통합 QR·유튜브 레시피 웹(S/W)을 하나로 결합합니다.</p>
+          <a class="foot-email" href="mailto:misstery51288@gmail.com">
+            <i class="fa-regular fa-envelope"></i>
+            <span>misstery51288@gmail.com</span>
+          </a>
+        </div>
+
+        <div class="foot-col">
+          <h4 data-i18n="foot.c1">페이지 이동</h4>
+          <ul>
+            <li><a href="#lineup" data-i18n="nav.lineup">핵심 3종</a></li>
+            <li><a href="#why" data-i18n="nav.why">왜 K1인가</a></li>
+            <li><a href="#system" data-i18n="nav.system">통합 레시피 웹</a></li>
+            <li><a href="#business" data-i18n="nav.business">사업화 · B2B</a></li>
+          </ul>
+        </div>
+
+        <div class="foot-col">
+          <h4 data-i18n="foot.c2">통합 서비스 &amp; 문의</h4>
+          <ul>
+            <li><a href="recipe/index.html" data-i18n="nav.recipeApp">K1 레시피 웹</a></li>
+            <li><a href="recipe/index.html#/import" data-i18n="sys.tabYt">유튜브 통합</a></li>
+            <li><a href="#validate" data-open-b2b data-i18n="biz.supCta">공급 · B2B 샘플 문의하기</a></li>
+            <li><button class="foot-link-btn" type="button" data-open-privacy data-i18n="foot.privacy">개인정보 수집·이용 안내</button></li>
+            <li><a href="mailto:misstery51288@gmail.com" data-i18n="foot.contactEmail">공식 이메일: misstery51288@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span data-i18n="foot.copy">© 2026 Bitelabs (바이트랩스). All rights reserved. · K1 K-Stick Sampler</span>
+        <button class="export-btn" id="exportCsvBtn" type="button">
+          <i class="fa-solid fa-file-csv"></i>
+          <span data-i18n="foot.export">검증 데이터 CSV 내보내기</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PRIVACY POLICY MODAL ===== -->
+  <div class="privacy-backdrop" id="privacyBackdrop" aria-hidden="true"></div>
+  <div class="privacy-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle" aria-hidden="true">
+    <div class="privacy-modal-card">
+      <div class="privacy-modal-head">
+        <div>
+          <span class="privacy-kicker">BITELABS · K1 STICK SAUCE</span>
+          <h3 id="privacyModalTitle" data-i18n="privacy.title">개인정보 수집·이용 안내</h3>
+        </div>
+        <button class="privacy-close" id="privacyClose" type="button" aria-label="닫기">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="privacy-modal-body">
+        <p class="privacy-intro" data-i18n="privacy.intro">바이트랩스(Bitelabs)는 K1 스틱소스 사전예약 및 B2B 협업 문의를 위해 필요한 최소한의 개인정보만 수집·이용합니다.</p>
+        <div class="privacy-section">
+          <h4 data-i18n="privacy.s1Title">1. 수집 항목</h4>
+          <p data-i18n="privacy.s1Body">사전예약(B2C): 이름/닉네임, 이메일, 선호 맛·활용 상황·희망 구성·적정 가격대 / B2B 문의: 회사·기관명, 담당자명, 업무용 이메일·연락처, 협업 분야, 문의 내용 / 자동 수집: 유입 경로(UTM), 리퍼러, 접속 페이지 URL</p>
+        </div>
+        <div class="privacy-section">
+          <h4 data-i18n="privacy.s2Title">2. 수집 및 이용 목적</h4>
+          <p data-i18n="privacy.s2Body">6개입 샘플러 크라우드펀딩 오픈 알림, 초기 시식단 초청, 핵심 3종 선호도·가격 수요 검증, 공급업체 및 B2B 샘플·제휴 회신</p>
+        </div>
+        <div class="privacy-section">
+          <h4 data-i18n="privacy.s3Title">3. 보유 및 이용 기간</h4>
+          <p data-i18n="privacy.s3Body">수집일로부터 최대 1년 또는 런칭 알림·문의 응대 목적 달성 및 이용자 삭제 요청 시 지체 없이 파기합니다.</p>
+        </div>
+        <div class="privacy-section">
+          <h4 data-i18n="privacy.s4Title">4. 동의 거부 권리 및 열람·삭제 문의</h4>
+          <p data-i18n="privacy.s4Body">이용자는 개인정보 수집·이용 동의를 거부할 수 있으나, 이 경우 사전예약 알림 및 B2B 회신 제공이 제한될 수 있습니다. 수집된 정보의 열람·정정·삭제는 아래 공식 이메일로 언제든 요청하실 수 있습니다.</p>
+        </div>
+        <div class="privacy-contact">
+          <strong data-i18n="privacy.contactLabel">개인정보 보호 및 공식 문의 (바이트랩스 Bitelabs)</strong>
+          <a href="mailto:misstery51288@gmail.com"><i class="fa-regular fa-envelope"></i> misstery51288@gmail.com</a>
+        </div>
+      </div>
+      <div class="privacy-modal-foot">
+        <button class="btn btn-ink btn-sm" id="privacyConfirmBtn" type="button" data-i18n="privacy.close">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="analytics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
