@@ -152,7 +152,7 @@
   const QR_DATA = {
     bulgogi: {
       backImg: 'assets/packaging/k1-bulgogi-back.png',
-      url: 'k1/recipe/#/recipe/bulgogi-dupbap',
+      url: 'k1.bitelabs.kr/recipe/#/recipe/bulgogi-dupbap',
       appHref: 'recipe/index.html#/recipe/bulgogi-dupbap',
       title: { ko: '01 불고기 덮밥 (3분 조리)', en: '01 Savory Bulgogi Rice Bowl (3 min)', ja: '01 プルコギ丼（3分）', zh: '01 烤肉盖饭（3分钟）' },
       sub: { ko: 'K1 01 불고기 스틱 1포 · 물 2큰술 · 1~2인분', en: '1 K1 01 Bulgogi stick · 2 tbsp water · 1–2 servings', ja: 'K1 01 プルコギ1本 · 水大さじ2', zh: 'K1 01烤肉1条 · 水2勺' },
@@ -178,7 +178,7 @@
     },
     tteokbokki: {
       backImg: 'assets/packaging/k1-tteokbokki-back.png',
-      url: 'k1/recipe/#/recipe/tteokbokki',
+      url: 'k1.bitelabs.kr/recipe/#/recipe/tteokbokki',
       appHref: 'recipe/index.html#/recipe/tteokbokki',
       title: { ko: '02 국물 떡볶이 정석 (3분 조리)', en: '02 Classic Soupy Tteokbokki (3 min)', ja: '02 定番スープトッポッキ（3分）', zh: '02 经典汤汁辣炒年糕（3分钟）' },
       sub: { ko: 'K1 02 떡볶이 스틱 1포 · 물 350ml · 1~2인분', en: '1 K1 02 Tteokbokki stick · 350ml water · 1–2 servings', ja: 'K1 02 トッポッキ1本 · 水350ml', zh: 'K1 02辣炒年糕1条 · 水350ml' },
@@ -204,7 +204,7 @@
     },
     kimchi: {
       backImg: 'assets/packaging/k1-kimchi-back.png',
-      url: 'k1/recipe/#/recipe/kimchi-jjigae',
+      url: 'k1.bitelabs.kr/recipe/#/recipe/kimchi-jjigae',
       appHref: 'recipe/index.html#/recipe/kimchi-jjigae',
       title: { ko: '03 매콤 김치찌개 (3분 조리)', en: '03 Spicy Kimchi Stew (3 min)', ja: '03 旨辛キムチチゲ（3分）', zh: '03 香辣泡菜汤（3分钟）' },
       sub: { ko: 'K1 03 김치찌개 스틱 1포 · 물 400ml · 1~2인분', en: '1 K1 03 Kimchi stick · 400ml water · 1–2 servings', ja: 'K1 03 キムチチゲ1本 · 水400ml', zh: 'K1 03泡菜汤1条 · 水400ml' },
